@@ -2,20 +2,21 @@
 package com.mycompany.cakeshop;
 
 public class CustomerDashboard implements Observer , Display {
-    private int numberOrder;
+    private static int numberOrder;
     private String nameOrder;
     private static int amount ;
-    private String typeCake ;
+    private String cakeType ;
     private Subject orderData;
-
+    private String city;
     public CustomerDashboard(Subject orderData)  {
         this.orderData = orderData;
         orderData.registerObserver(this);
     }
     @Override
-    public void update(String typeCake, int amount, String nameOrder, int numberOrder) {
-       this.typeCake =  typeCake ;   
-       this.amount =  amount ;
+    public void update(String typeCake,String city ,int amount, String nameOrder, int numberOrder) {
+       this.city = city;
+       this.cakeType =  typeCake ;   
+       this.amount =  amount;
        this.nameOrder =  nameOrder ;
        this.numberOrder =  numberOrder ;
     }

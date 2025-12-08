@@ -4,10 +4,7 @@
  */
 package com.mycompany.cakeshop;
 
-/**
- *
- * @author Mouse Tech
- */
+
 public class Cream extends CondimentDecorator{
     
     Cake cake ;

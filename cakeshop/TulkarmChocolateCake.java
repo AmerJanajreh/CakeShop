@@ -2,7 +2,7 @@
 package com.mycompany.cakeshop;
 public class TulkarmChocolateCake extends Cake {
         public TulkarmChocolateCake(){
-        name = "Tulkarm Style ChocolatePizza";
+        name = "Tulkarm Style Chocolate Cake";
         super.description = name;
         flour = "Cake Flour";
         eggs = "3 egg whites";

@@ -6,7 +6,7 @@ import java.util.ArrayList;
 public class NablusAppleCake extends Cake{
 
     public NablusAppleCake(){ 
-        name = "Nablus Style ApplePizza";
+        name = "Nablus Style Apple Cake";
         super.description = name;
         flour = "Cake flour";
         eggs = "1 yolk , 2 egg whites";

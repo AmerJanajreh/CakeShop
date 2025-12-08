@@ -9,17 +9,9 @@ public class CakeOrderingSystem {
     
     private static CakeOrderingSystem system;
    
-    static HashMap<String , Integer> map = new HashMap();
-    static int numberOrder ;
-    
+
     private CakeOrderingSystem() {
-        map.put("apple nablus", 0);
-        map.put("apple tulkarm", 0);
-        map.put("cheese nablus", 0);
-        map.put("cheese tulkarm", 0);
-        map.put("chocolate nablus", 0);
-        map.put("chocolate tulkarm", 0);
-        numberOrder = 0;
+
     }
     
     public static synchronized CakeOrderingSystem getInstance() {
@@ -28,31 +20,42 @@ public class CakeOrderingSystem {
         }
         return system;
     }
-    public static int getAmount(String city  , String type){
-       map.put(type + " " + city , map.get(type + " " + city) + 1) ; 
-       return map.get(type+ " " + city);
-    }
-    private static int getNumberOrder() {
-        numberOrder += 1;
-        return numberOrder;
-    }
-    public void placeOrder(String city ,  String cakeType  ,String nameOrder){
-        CakeStore c;
+
+    public void placeOrder(String city ,  String cakeType  ,String nameOrder ,int chips , int chocolate , int cream , int Skittles){
+        CakeStore store = null;
         OrderData orderData  = new OrderData();
         MangerDashboard manager = new MangerDashboard(orderData);
         CustomerDashboard customer = new CustomerDashboard(orderData);
         if(city.equals("nablus")) {
-            c = new NablusCakeStore();
-            c.createCake(cakeType);
+            store = new NablusCakeStore();
         }else if (city.equals("tulkarm")){
-           c = new TulkarmCakeStore();
-           c.createCake(cakeType);
+           store = new TulkarmCakeStore();
         }
-        orderData.setData(cakeType, getAmount(city , cakeType), nameOrder, getNumberOrder());
-        orderData.DataChanged();
+
+        Cake cake = store.createCake(cakeType);
+        for (int i = 0; i < chips; i++) {
+            cake = new Chips(cake);
+        }
+        for (int i = 0; i < chocolate; i++) {
+            cake = new Chocolate(cake);
+        }
+        for (int i = 0; i < cream; i++) {
+            cake = new Cream(cake);
+        }
+        for (int i = 0; i < Skittles; i++) {
+            cake = new Skittles(cake);
+        }
+        System.out.println(cake.getDescription());
+        System.out.println("Cost = " +cake.cost());
+        System.out.println("<<<<<< Create Cake >>>>>>");
+        System.out.println(cake.getDescription());
+        System.out.println("Cost = " +cake.cost());
+        store.orderCake(cakeType);
+        orderData.setData(cakeType, nameOrder , city);
         System.out.println("<<<<<< Manager Dashboard >>>>>>");
         manager.display();
         System.out.println("<<<<<< Customer Dashboard >>>>>>");
         customer.display();
+        System.out.println("---------------------------------------------------------");
     }   
 }
