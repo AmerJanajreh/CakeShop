@@ -12,7 +12,7 @@ public abstract class Cake {
     ArrayList<String> toppings = new ArrayList<String>();
     void prepare(){
         System.out.println("Prepare " + name);
-        System.out.println("Combine daugh component(flour,eggs.flavor,milk,suger...)");
+        System.out.println("Combine daugh component(flour,eggs,flavor,milk,suger...)");
         System.out.println("Adding sause...");
         System.out.println("Adding toppings:");
         for(String x : toppings){
@@ -32,6 +32,14 @@ public abstract class Cake {
         return description;
      }
 
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+     
      public abstract double cost();
 }
 
