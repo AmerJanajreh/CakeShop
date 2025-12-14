@@ -3,8 +3,8 @@ package com.mycompany.cakeshop;
 public class NablusCheeseCake extends Cake{
     
         public NablusCheeseCake(){
-        name = "Nablus Style Cheese Cake";
-        super.description = name;
+        name = "cheese cake";
+        super.description = "Nablus Style Cheese Cake";
         flour = "Whole Wheat flour";
         eggs = "2 yolk, 3 egg whites";
         flavor = "Shaabi Cheese flour";

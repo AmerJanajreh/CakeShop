@@ -10,18 +10,17 @@ import java.util.HashMap;
 public class OrderData implements Subject {
     private ArrayList observers;
     private static int numberOrder = 0 ;
-    private String nameOrder;
     private static HashMap<String , Integer> amount;
-    private String cakeType ; 
+    private Cake cake ; 
     private String city;
     static {
         amount = new HashMap();
-        amount.put("apple nablus", 0);
-        amount.put("apple tulkarm", 0);
-        amount.put("cheese nablus", 0);
-        amount.put("cheese tulkarm", 0);
-        amount.put("chocolate nablus", 0);
-        amount.put("chocolate tulkarm", 0); 
+        amount.put("apple cake nablus", 0);
+        amount.put("apple cake tulkarm", 0);
+        amount.put("cheese cake nablus", 0);
+        amount.put("cheese cake tulkarm", 0);
+        amount.put("chocolate cake nablus", 0);
+        amount.put("chocolate cake tulkarm", 0); 
     }
     public OrderData() {
         observers = new ArrayList();
@@ -48,20 +47,22 @@ public class OrderData implements Subject {
     }
     @Override
     public void notifyObservers() {
+        
         int t1 = getNumberOrder();
-        int t2 = getAmount(cakeType , city);
+        int t2 = getAmount(cake.name , city);
+        
         for (int i = 0; i < observers.size(); i++) {
             Observer observer = (Observer)observers.get(i);
-            observer.update(cakeType ,city , t2,nameOrder ,t1);
+            observer.update(cake ,city , t2 ,t1);
+            
         } 
     }
     public void DataChanged() {
             notifyObservers();
     }
-    public void setData(String typeCake, String nameOrder , String city){
+    public void setData(Cake cake , String city){
        this.city = city;
-       this.cakeType =  typeCake ;
-       this.nameOrder =  nameOrder ;
+       this.cake =  cake;
        DataChanged();
     }
 }

@@ -1,13 +1,12 @@
 
 package com.mycompany.cakeshop;
 
-import java.util.ArrayList;
 
 public class NablusAppleCake extends Cake{
 
     public NablusAppleCake(){ 
-        name = "Nablus Style Apple Cake";
-        super.description = name;
+        name = "apple cake";
+        super.description = "Nablus Style Apple Cake";
         flour = "Cake flour";
         eggs = "1 yolk , 2 egg whites";
         flavor = "Vanilla";

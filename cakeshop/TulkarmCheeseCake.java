@@ -2,8 +2,8 @@
 package com.mycompany.cakeshop;
 public class TulkarmCheeseCake extends Cake{
         public TulkarmCheeseCake(){
-        name = "Tulkarm Style Cheese Cake";
-        super.description = name;
+        name = "cheese cake";
+        super.description = "Tulkarm Style Cheese Cake";
         flour = "SelfRising";
         eggs = "No eggs";
         flavor = "Vanilla-Cheese flavor";

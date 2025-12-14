@@ -4,8 +4,8 @@ package com.mycompany.cakeshop;
 public class TulkarmAppleCake extends Cake {
     public TulkarmAppleCake(){
         
-        name = "Tulkarm Style Apple Cake";
-        super.description = name;
+        name = "apple cake";
+        description = "Tulkarm Style Apple Cake";
         flour = "whole wheat Flour";
         eggs = "2 yolk , 1 egg whites";
         flavor = "Caramel";

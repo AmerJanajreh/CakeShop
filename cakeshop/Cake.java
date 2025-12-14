@@ -10,7 +10,7 @@ public abstract class Cake {
     String flavor;
     String sauce;
     ArrayList<String> toppings = new ArrayList<String>();
-    void prepare(){;
+    void prepare(){
         System.out.println("Prepare " + name);
         System.out.println("Combine daugh component(flour,eggs.flavor,milk,suger...)");
         System.out.println("Adding sause...");

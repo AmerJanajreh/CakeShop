@@ -3,9 +3,8 @@ package com.mycompany.cakeshop;
 
 public class CustomerDashboard implements Observer , Display {
     private static int numberOrder;
-    private String nameOrder;
     private static int amount ;
-    private String cakeType ;
+    private Cake cake;
     private Subject orderData;
     private String city;
     public CustomerDashboard(Subject orderData)  {
@@ -13,17 +12,15 @@ public class CustomerDashboard implements Observer , Display {
         orderData.registerObserver(this);
     }
     @Override
-    public void update(String typeCake,String city ,int amount, String nameOrder, int numberOrder) {
+    public void update(Cake cake,String city ,int amount, int numberOrder) {
        this.city = city;
-       this.cakeType =  typeCake ;   
+       this.cake =  cake ;   
        this.amount =  amount;
-       this.nameOrder =  nameOrder ;
        this.numberOrder =  numberOrder ;
     }
 
     @Override
     public void display() {
-        System.out.println( nameOrder + " " + numberOrder);
-    }
-    
+        System.out.println(cake.getDescription() + " "  +  numberOrder);
+    } 
 }

@@ -2,8 +2,8 @@
 package com.mycompany.cakeshop;
 public class NablusChocolateCake extends Cake {
         public NablusChocolateCake(){
-        name = "Nablus Style Chocolate Cake";
-        super.description = name;
+        name = "chocolate cake";
+        super.description = "Nablus Style Chocolate Cake";
         flour = "Self-Rising flour";
         eggs = "No eggs";
         flavor = "Chocolate";
@@ -14,6 +14,5 @@ public class NablusChocolateCake extends Cake {
     @Override
     public double cost() {
         return 35.0;
-    }
-    
+    } 
 }
